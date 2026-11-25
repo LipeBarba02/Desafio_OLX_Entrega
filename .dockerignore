@@ -1,0 +1,10 @@
+.git
+.idea
+.vscode
+**/target
+**/node_modules
+**/.next
+apps/web
+solutions/simple
+platform/terraform/**/terraform.tfstate*
+platform/terraform/**/*.tfvars

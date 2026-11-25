@@ -1,0 +1,14 @@
+C:\Users\User\Downloads\OLX_Marketplace_Enterprise_e_Solucao_Pequena (1)\olx-marketplace-enterprise\solutions\simple\src\main\java\dev\olx\simple\application\AdNotFoundException.java
+C:\Users\User\Downloads\OLX_Marketplace_Enterprise_e_Solucao_Pequena (1)\olx-marketplace-enterprise\solutions\simple\src\main\java\dev\olx\simple\application\AdService.java
+C:\Users\User\Downloads\OLX_Marketplace_Enterprise_e_Solucao_Pequena (1)\olx-marketplace-enterprise\solutions\simple\src\main\java\dev\olx\simple\config\ClockConfiguration.java
+C:\Users\User\Downloads\OLX_Marketplace_Enterprise_e_Solucao_Pequena (1)\olx-marketplace-enterprise\solutions\simple\src\main\java\dev\olx\simple\domain\Category.java
+C:\Users\User\Downloads\OLX_Marketplace_Enterprise_e_Solucao_Pequena (1)\olx-marketplace-enterprise\solutions\simple\src\main\java\dev\olx\simple\domain\ModerationStatus.java
+C:\Users\User\Downloads\OLX_Marketplace_Enterprise_e_Solucao_Pequena (1)\olx-marketplace-enterprise\solutions\simple\src\main\java\dev\olx\simple\MarketplaceApplication.java
+C:\Users\User\Downloads\OLX_Marketplace_Enterprise_e_Solucao_Pequena (1)\olx-marketplace-enterprise\solutions\simple\src\main\java\dev\olx\simple\moderation\ModerationClient.java
+C:\Users\User\Downloads\OLX_Marketplace_Enterprise_e_Solucao_Pequena (1)\olx-marketplace-enterprise\solutions\simple\src\main\java\dev\olx\simple\moderation\ModerationUnavailableException.java
+C:\Users\User\Downloads\OLX_Marketplace_Enterprise_e_Solucao_Pequena (1)\olx-marketplace-enterprise\solutions\simple\src\main\java\dev\olx\simple\persistence\AdEntity.java
+C:\Users\User\Downloads\OLX_Marketplace_Enterprise_e_Solucao_Pequena (1)\olx-marketplace-enterprise\solutions\simple\src\main\java\dev\olx\simple\persistence\AdRepository.java
+C:\Users\User\Downloads\OLX_Marketplace_Enterprise_e_Solucao_Pequena (1)\olx-marketplace-enterprise\solutions\simple\src\main\java\dev\olx\simple\web\AdController.java
+C:\Users\User\Downloads\OLX_Marketplace_Enterprise_e_Solucao_Pequena (1)\olx-marketplace-enterprise\solutions\simple\src\main\java\dev\olx\simple\web\AdResponse.java
+C:\Users\User\Downloads\OLX_Marketplace_Enterprise_e_Solucao_Pequena (1)\olx-marketplace-enterprise\solutions\simple\src\main\java\dev\olx\simple\web\ApiExceptionHandler.java
+C:\Users\User\Downloads\OLX_Marketplace_Enterprise_e_Solucao_Pequena (1)\olx-marketplace-enterprise\solutions\simple\src\main\java\dev\olx\simple\web\CreateAdRequest.java

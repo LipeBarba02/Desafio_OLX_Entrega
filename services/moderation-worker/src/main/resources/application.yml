@@ -1,0 +1,52 @@
+server:
+  port: ${PORT:8084}
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5433/moderation}
+    username: ${DB_USER:olx}
+    password: ${DB_PASSWORD:admin}
+    hikari:
+      maximum-pool-size: ${DB_POOL_MAX_SIZE:5}
+      connection-timeout: ${DB_CONNECTION_TIMEOUT_MS:3000}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+  flyway:
+    enabled: true
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+      connect-timeout: 1s
+      timeout: 1s
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      acks: all
+      properties:
+        enable.idempotence: true
+    consumer:
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      auto-offset-reset: earliest
+      enable-auto-commit: false
+    listener:
+      ack-mode: record
+app:
+  kafka:
+    topics:
+      ad-submitted: ${KAFKA_AD_SUBMITTED_TOPIC:ads.submitted.v1}
+      ad-moderation-decided: ${KAFKA_AD_MODERATION_DECIDED_TOPIC:ads.moderation-decided.v1}
+moderation:
+  base-url: ${MODERATION_URL:http://localhost:8787}
+  connect-timeout-ms: ${MODERATION_CONNECT_TIMEOUT_MS:1000}
+  read-timeout-ms: ${MODERATION_READ_TIMEOUT_MS:5000}
+  consumer-concurrency: ${MODERATION_CONSUMER_CONCURRENCY:1}
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus

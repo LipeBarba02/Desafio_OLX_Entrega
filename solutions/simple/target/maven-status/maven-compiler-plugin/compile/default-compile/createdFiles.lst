@@ -1,0 +1,17 @@
+dev\olx\simple\persistence\AdRepository.class
+dev\olx\simple\config\ClockConfiguration.class
+dev\olx\simple\moderation\ModerationClient$Decision.class
+dev\olx\simple\moderation\ModerationUnavailableException.class
+dev\olx\simple\domain\Category.class
+dev\olx\simple\MarketplaceApplication.class
+dev\olx\simple\moderation\ModerationClient$ModerationResponse.class
+dev\olx\simple\web\AdResponse.class
+dev\olx\simple\persistence\AdEntity.class
+dev\olx\simple\web\ApiExceptionHandler.class
+dev\olx\simple\application\AdService.class
+dev\olx\simple\moderation\ModerationClient$ModerationRequest.class
+dev\olx\simple\moderation\ModerationClient.class
+dev\olx\simple\web\AdController.class
+dev\olx\simple\domain\ModerationStatus.class
+dev\olx\simple\application\AdNotFoundException.class
+dev\olx\simple\web\CreateAdRequest.class

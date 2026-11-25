@@ -1,0 +1,39 @@
+{{- range .Values.services }}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .name }}
+spec:
+  replicas: {{ $.Values.replicas }}
+  selector:
+    matchLabels: {app: {{ .name }}}
+  template:
+    metadata:
+      labels: {app: {{ .name }}}
+    spec:
+      containers:
+        - name: {{ .name }}
+          image: "{{ .image }}:{{ .tag }}"
+          ports:
+            - containerPort: {{ .port }}
+          readinessProbe:
+            httpGet: {path: /actuator/health/readiness, port: {{ .port }}}
+            initialDelaySeconds: 15
+          livenessProbe:
+            httpGet: {path: /actuator/health/liveness, port: {{ .port }}}
+            initialDelaySeconds: 30
+          resources:
+            requests: {cpu: 100m, memory: 256Mi}
+            limits: {cpu: 500m, memory: 512Mi}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .name }}
+spec:
+  selector: {app: {{ .name }}}
+  ports:
+    - port: {{ .port }}
+      targetPort: {{ .port }}
+{{- end }}

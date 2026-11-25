@@ -1,0 +1,55 @@
+server:
+  port: ${PORT:8081}
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      server:
+        webflux:
+          routes:
+            - id: ads-search
+              uri: ${ADS_QUERY_URL:http://localhost:8086}
+              predicates:
+                - Path=/api/ads/search/**
+                - Method=GET
+              filters:
+                - SetPath=/ads/search
+            - id: ads-list
+              uri: ${ADS_QUERY_URL:http://localhost:8086}
+              predicates:
+                - Path=/api/ads,/api/ads/
+                - Method=GET
+              filters:
+                - SetPath=/ads/search
+            - id: ads-detail
+              uri: ${ADS_QUERY_URL:http://localhost:8086}
+              predicates:
+                - Path=/api/ads/{id}
+                - Method=GET
+              filters:
+                - SetPath=/ads/{id}
+            - id: ads-create
+              uri: ${ADS_URL:http://localhost:8082}
+              predicates:
+                - Path=/api/ads/**
+                - Method=POST
+              filters:
+                - StripPrefix=1
+            - id: search
+              uri: ${ADS_QUERY_URL:http://localhost:8086}
+              predicates:
+                - Path=/api/search/**
+              filters:
+                - SetPath=/ads/search
+            - id: query-detail
+              uri: ${ADS_QUERY_URL:http://localhost:8086}
+              predicates:
+                - Path=/api/query/ads/**
+              filters:
+                - StripPrefix=2
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus

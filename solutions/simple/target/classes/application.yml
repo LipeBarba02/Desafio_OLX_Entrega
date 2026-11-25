@@ -1,0 +1,17 @@
+server:
+  port: ${PORT:8087}
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5433/olx_simple}
+    username: ${DB_USER:olx}
+    password: ${DB_PASSWORD:admin}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+  flyway:
+    enabled: true
+moderation:
+  base-url: ${MODERATION_URL:http://localhost:8787}
+  connect-timeout-ms: ${MODERATION_CONNECT_TIMEOUT_MS:1000}
+  read-timeout-ms: ${MODERATION_READ_TIMEOUT_MS:3000}

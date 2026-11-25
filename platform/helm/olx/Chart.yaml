@@ -1,0 +1,6 @@
+apiVersion: v2
+name: olx
+description: Chart inicial para serviços do laboratório OLX
+type: application
+version: 0.1.0
+appVersion: "0.1.0"

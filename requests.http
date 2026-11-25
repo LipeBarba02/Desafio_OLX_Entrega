@@ -1,0 +1,54 @@
+### Health do mock de moderação
+GET http://localhost:8787/health
+Accept: application/json
+
+### Solução pequena: criar anúncio com moderação síncrona
+# Inicie o perfil `simple` antes de executar esta requisição.
+POST http://localhost:8087/ads
+Content-Type: application/json
+Accept: application/json
+
+{
+  "title": "Notebook usado em bom estado",
+  "description": "Notebook com carregador original e sinais leves de uso.",
+  "price": 1800.00,
+  "category": "eletronicos",
+  "images": ["https://example.com/notebook.jpg"]
+}
+
+### Solução pequena: listar anúncios
+GET http://localhost:8087/ads?page=0&size=20&category=eletronicos
+Accept: application/json
+
+### Solução pequena: consultar anúncio pelo ID retornado no POST
+# Troque o UUID de exemplo pelo campo "id" da resposta do POST da solução pequena.
+GET http://localhost:8087/ads/9619d9f1-785e-49f2-8115-093bd961127a
+Accept: application/json
+
+### Enterprise: cadastrar anúncio para moderação assíncrona
+# O endpoint retorna 202 Accepted e um adId. A decisão de moderação chega depois.
+POST http://localhost:8082/ads
+Content-Type: application/json
+Accept: application/json
+
+{
+  "title": "Notebook usado em bom estado",
+  "description": "Notebook com carregador original e sinais leves de uso.",
+  "price": 1800.00,
+  "category": "eletronicos",
+  "images": ["https://example.com/notebook.jpg"]
+}
+
+### Enterprise: listar anúncios no Ads Command/PostgreSQL
+GET http://localhost:8082/ads?page=0&size=20&category=eletronicos
+Accept: application/json
+
+### Enterprise: buscar anúncios no serviço de consulta/OpenSearch
+# Aguarde o consumidor processar o evento e atualizar o índice; a busca é eventualmente consistente.
+GET http://localhost:8086/ads/search?q=notebook&category=eletronicos&size=20
+Accept: application/json
+
+### Enterprise: detalhe aprovado no serviço de consulta
+# Troque o UUID de exemplo pelo adId retornado no POST Enterprise.
+GET http://localhost:8086/ads/a67a968c-2afd-4b8c-a0db-6e2ca211f2c7
+Accept: application/json

@@ -1,0 +1,14 @@
+services:
+  - name: ads-service
+    image: ghcr.io/CHANGE_ME/olx-ads-service
+    tag: dev
+    port: 8081
+  - name: favorites-service
+    image: ghcr.io/CHANGE_ME/olx-favorites-service
+    tag: dev
+    port: 8082
+  - name: api-gateway
+    image: ghcr.io/CHANGE_ME/olx-api-gateway
+    tag: dev
+    port: 8080
+replicas: 1
